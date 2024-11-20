@@ -8,9 +8,10 @@ export class GameObject {
         this.angle = 0
     }
     render(ctx, scale) {
-        ctx.translate((this.posX) * scale / 16, (this.posY) * scale / 16,);
-        ctx.rotate(this.angle + 1.5708);
+        ctx.translate((this.posX) * scale / 16, (this.posY) * scale / 16);
+        ctx.rotate(this.angle);
         ctx.drawImage(this.img, -8 * (scale / 16), -8 * (scale / 16), this.width*scale,  this.height*scale);
-        ctx.restore();
+        ctx.rotate(-this.angle);
+        ctx.translate(0, 0);
     }
 }
